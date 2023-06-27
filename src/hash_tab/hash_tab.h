@@ -13,4 +13,12 @@ typedef struct chain_node
 	chain_node* next;
 }chain_node;
 
+typedef struct hash_tab_chain
+{
+	chain_node* hash_tab;
+	int size;
+}
+
 void init_hash_tab_chain(int);
+int insert_hash_tab_chain(int, int, hash_tab_chain*);
+int hash_func(int);
