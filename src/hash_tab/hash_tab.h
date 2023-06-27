@@ -20,5 +20,6 @@ typedef struct hash_tab_chain
 }
 
 void init_hash_tab_chain(int);
-int insert_hash_tab_chain(int, int, hash_tab_chain*);
+void insert_hash_tab_chain(int, int, hash_tab_chain*);
 int hash_func(int);
+chain_node* hash_tab_chain_lookup(int, hash_tab_chain*);

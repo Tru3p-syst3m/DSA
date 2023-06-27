@@ -29,6 +29,7 @@ void insert_hash_tab_chain(int key, int value, hash_tab_chain* hash_tab)
 	n->key = key; n->value = value;
 
 	int hash = hash_func(key) % hash_tab->size;
+
 	if(hash_tab->hash_tab[hash] == NULL)
 	{
 		hash_tab->hash_tab[hash] = n;
@@ -51,3 +52,27 @@ void insert_hash_tab_chain(int key, int value, hash_tab_chain* hash_tab)
 	}
 }
 
+chain_node* hash_tab_chain_lookup(int key, hash_tab_chain* hash_tab)
+{
+	int hash = hash_func(key) % hash_tab->size;
+
+	if(hash_tab->hash_tab[hash]->key == key)
+	{
+		return hash_tab->hash_tab[hash];
+	}
+	else
+	{
+		chain_node* tmp = hash_tab->hash_tab[hash]->next;
+		while(1)
+		{
+			if(tmp->key == key)
+			{
+				return tmp;
+			}
+			else
+			{
+				tmp = tmp->next;
+			}
+		}
+	}
+}
