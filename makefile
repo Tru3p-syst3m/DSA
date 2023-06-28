@@ -15,9 +15,9 @@ HASH_OBJ_FUNC = $(HASH_OBJ)/hash_tab.o
 PHONY: hashtab
 
 hashtab : $(HASH_NAME)
-$(HASH_NAME) : $(HASH_OBJ_MAIN) $(HASH_OBJ_FUNC)
+$(HASH_NAME) : $(HASH_OBJ_FUNC) $(HASH_OBJ_MAIN)
 	gcc -Wall -o $(HASH_NAME) $(HASH_OBJ_MAIN) $(HASH_OBJ_FUNC)
 $(HASH_OBJ_FUNC) : $(HASH_SRC_FUNC)
-	gcc -Wall -I $(HASH_SRC) -o $(HASH_OBJ_FUNC) $(HASH_SRC_FUNC)
+	gcc -Wall -I $(HASH_SRC) -o $(HASH_OBJ_FUNC) -c $(HASH_SRC_FUNC)
 $(HASH_OBJ_MAIN) : $(HASH_SRC_MAIN)
-	gcc -Wall -I $(HASH_SRC) -o $(HASH_OBJ_MAIN) $(HASH_SRC_MAIN)
+	gcc -Wall -I $(HASH_SRC) -o $(HASH_OBJ_MAIN) -c $(HASH_SRC_MAIN)

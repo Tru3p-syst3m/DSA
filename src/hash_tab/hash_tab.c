@@ -9,11 +9,11 @@ hash_tab_chain* init_hash_tab_chain(int slots)
 	hash_tab_chain* hash = malloc(sizeof(hash_tab_chain));
 	assert(hash);
 	hash->hash_tab = malloc(sizeof(chain_node*) * slots);
-	assert(hash_tab);
+	assert(hash->hash_tab);
 	hash->size = slots;
 	for(int i = 0; i <= slots; i++)
 	{
-		hash_tab[i] = NULL;
+		hash->hash_tab[i] = NULL;
 	}
 	return hash;
 }
